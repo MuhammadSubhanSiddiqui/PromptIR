@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated datasets and model weights
+raw_data/
+custom_dataset/
+*.pth
+*.pt
+*.ckpt
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
