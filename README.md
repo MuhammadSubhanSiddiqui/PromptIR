@@ -44,7 +44,7 @@ These generated assets are ignored by git so the repository stays lightweight.
 - `pretrained_weights.pth` is optional; if present, the notebook loads it with `strict=False`.
 - Large generated files such as datasets and weights should not be committed to the repository.
 
-## Paper
+## Drive link
 Drive link: [paste here](https://drive.google.com/drive/folders/18gAkx_7K2dZH89dcv72MbHgdwUbtvcJH?usp=sharing)
 
 
