@@ -45,6 +45,10 @@ These generated assets are ignored by git so the repository stays lightweight.
 - Large generated files such as datasets and weights should not be committed to the repository.
 
 ## Paper
+Drive link: [paste here](https://drive.google.com/drive/folders/18gAkx_7K2dZH89dcv72MbHgdwUbtvcJH?usp=sharing)
+
+
+## Paper
 Original research paper link: [paste here](https://neurips.cc/virtual/2023/poster/72023)
 
 Potlapalli et al., "PromptIR: Prompting for All-in-One Image Restoration", NeurIPS 2023
