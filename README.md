@@ -1,26 +1,30 @@
 # PromptIR Fine-Tuning
 Fine-tuning workflow for PromptIR on a custom synthetic degradation dataset built from DIV2K.
 
-## What's included
-- `1_generate_dataset.py` builds a synthetic paired dataset with clean, noisy, rainy, and dusty variants.
-- `2_test_dataset.py` visualizes a random training sample to verify the dataset structure.
-- `3_finetune_promptir.py` fine-tunes PromptIR on the custom dataset and saves weights.
-- `evaluate_metrics.py` reports PSNR and SSIM on the held-out test split.
-- `test_inference.py` runs a sample restoration preview.
+## Repository Contents
+- `DIPProjectFinal.ipynb` contains the full notebook workflow for dataset creation, zero-shot evaluation, fine-tuning, and inference preview.
+- `README.md` documents the results and setup.
+- `requirements.txt` lists the Python dependencies.
+- `.gitignore` keeps generated data and checkpoints out of version control.
 
 ## Results
-| Degradation | Degraded PSNR | Zero-Shot PSNR | Fine-Tuned PSNR | SSIM |
-|---|---|---|---|---|
-| Rainy | 20.41 | 17.93 | 21.51 | 0.7874 |
-| Dusty | 13.05 | 15.50 | 19.52 | 0.6271 |
-| Noisy | 26.53 | 25.60 | 21.36 | 0.7534 |
+Comparison of zero-shot and fine-tuned results from the notebook:
 
-Fine-tuning improved PSNR by +3.58 dB on rain removal and +4.02 dB on dust/haze removal versus the zero-shot pretrained baseline.
+| Degradation | Degraded PSNR | Zero-Shot PSNR | Fine-Tuned PSNR | PSNR Gain | Zero-Shot SSIM | Fine-Tuned SSIM | SSIM Gain |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Noisy | 25.90 | 19.42 | 24.31 | +4.89 | 0.6871 | 0.7599 | +0.0728 |
+| Rainy | 21.32 | 19.20 | 19.87 | +0.67 | 0.6558 | 0.7399 | +0.0841 |
+| Dusty | 12.81 | 11.01 | 13.03 | +2.02 | 0.4252 | 0.4996 | +0.0744 |
+| Mixed | 18.32 | 15.69 | 17.94 | +2.25 | 0.5367 | 0.6061 | +0.0694 |
+| Blur | 34.05 | 19.63 | 24.40 | +4.77 | 0.7133 | 0.8048 | +0.0915 |
+
+The notebook also includes sample restoration previews for visual comparison.
 
 ## Requirements
 - Python 3.10 or newer
 - PyTorch and TorchVision
 - OpenCV, NumPy, Pillow, Matplotlib, and scikit-image
+- Jupyter and IPython kernel support for running the notebook locally
 
 Install dependencies with:
 
@@ -35,41 +39,12 @@ pip install -r requirements.txt
 
 These generated assets are ignored by git so the repository stays lightweight.
 
-## Usage
-1. Generate the synthetic dataset:
-
-```bash
-python 1_generate_dataset.py
-```
-
-2. Verify the dataset layout:
-
-```bash
-python 2_test_dataset.py
-```
-
-3. Fine-tune PromptIR:
-
-```bash
-python 3_finetune_promptir.py
-```
-
-4. Evaluate PSNR and SSIM on the test split:
-
-```bash
-python evaluate_metrics.py
-```
-
-5. Run a sample inference preview:
-
-```bash
-python test_inference.py
-```
-
 ## Notes
-- The scripts expect a local PromptIR implementation at `net/model.py`.
-- `pretrained_weights.pth` is optional; if present, the training script loads it with `strict=False`.
+- Pretrained weights and the trained model checkpoint are uploaded to Google Drive.
+- `pretrained_weights.pth` is optional; if present, the notebook loads it with `strict=False`.
 - Large generated files such as datasets and weights should not be committed to the repository.
 
 ## Paper
+Original research paper link: [paste here](https://neurips.cc/virtual/2023/poster/72023)
+
 Potlapalli et al., "PromptIR: Prompting for All-in-One Image Restoration", NeurIPS 2023

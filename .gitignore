@@ -3,11 +3,16 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Virtual environments
 .venv/
 venv/
 env/
+.env
+.env.*
 
 # Jupyter
 .ipynb_checkpoints/
@@ -18,8 +23,12 @@ custom_dataset/
 *.pth
 *.pt
 *.ckpt
+*.log
+*.tmp
+*.bak
 
 # OS / editor files
 .DS_Store
 Thumbs.db
 .vscode/
+.idea/
